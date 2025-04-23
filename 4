@@ -1,0 +1,14 @@
+pipeline{
+    agentnone
+    
+
+    stages{
+        stage("checkout"){
+            agent{
+                label ""slave"
+            }
+
+        }
+    }
+
+}
