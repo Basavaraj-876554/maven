@@ -1,10 +1,22 @@
-pipeline{
-    agent any 
-
-
-
-    stages(for 1) {
-        stage(dfh)
-
+pipeline {
+    agent any
+    
     }
-}
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Basavaraj-876554/maven.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'aws s3 cp target/app.jar s3://your-bucket/'
+            }
+        }
+    }
+
