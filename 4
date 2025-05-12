@@ -1,14 +1,10 @@
 pipeline{
-    agentnone
-    
+    agent any 
 
-    stages{
-        stage("checkout"){
-            agent{
-                label ""slave"
-            }
 
-        }
+
+    stages(for 1) {
+        stage(dfh)
+
     }
-
 }
